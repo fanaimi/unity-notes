@@ -129,3 +129,5 @@ public class Raycast3 : MonoBehaviour
 
 
 ```
+
+* ZminDepth and ZmaxDepth can be used to specify wether we want to interact with foreground elements only or background elements only etc
