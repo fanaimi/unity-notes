@@ -84,6 +84,7 @@ public class Raycast2 : MonoBehaviour
 
 } // Raycast2
 ```
+
 * the normal is a vector perpendicular to the object hit, starting from the hitInfo.point
 * objectToPlace.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal); [FROMdirection, TOdirection]
 
@@ -97,7 +98,7 @@ public class Raycast3 : MonoBehaviour
     /////// ADDED TO A 2D object
 	
 	void Start(){
-		// thjis line prevents the raycast from hitting its own collider as it starts from its centre
+		// this line prevents the raycast from hitting its own collider as it starts from its centre
 		Physics2D.queriesStartColliders = false;
 	}
     
@@ -106,7 +107,10 @@ public class Raycast3 : MonoBehaviour
 
         RaycastHit2D hitInfo = Physics2D.Raycast(
 			transform.position, 	// origin
-			transform.right			// direction
+			transform.right,		// direction
+			distance,				// lenght of ray
+			ZminDepth,				// default: -infinite
+			ZmaxDepth				// dafault: +infinite
 		);
 
         if (hitInfo.Collider != null )
