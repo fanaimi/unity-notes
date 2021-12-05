@@ -95,6 +95,11 @@ public class Raycast3 : MonoBehaviour
 {
 
     /////// ADDED TO A 2D object
+	
+	void Start(){
+		// thjis line prevents the raycast from hitting its own collider as it starts from its centre
+		Physics2D.queriesStartColliders = false;
+	}
     
     void Update()
     {;
