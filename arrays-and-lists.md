@@ -37,6 +37,10 @@ Class someClass {
 	// creating an empty multidimensional array (3 dimensions)
 	int[,,] bigBoard = new int[3,4,5]; 
 	
+	
+	// getting leght of one of the arrays in a multidimensional array
+	int[,] board = new int [8,8]; // 8 rows and 8 columns
+	board.GetLenght(0) => specifies lenght of which array
 
 }	
 
