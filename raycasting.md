@@ -106,11 +106,12 @@ public class Raycast3 : MonoBehaviour
     {;
 
         RaycastHit2D hitInfo = Physics2D.Raycast(
-			transform.position, 	// origin
-			transform.right,		// direction
-			distance,				// lenght of ray
-			ZminDepth,				// default: -infinite
-			ZmaxDepth				// dafault: +infinite
+			transform.position, 	// Vector2 		origin
+			transform.right,		// Vector2		direction
+			distance,				// float		lenght of ray 
+			layerMask				// int			layer to interact to
+			ZminDepth,				// float 		default: -infinite
+			ZmaxDepth				// float 		dafault: +infinite
 		);
 
         if (hitInfo.Collider != null )
