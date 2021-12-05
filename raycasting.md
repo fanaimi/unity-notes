@@ -55,7 +55,7 @@ public class Raycast1 : MonoBehaviour
 ### using raycast to place an object on a terrain and change its rotation
 
 ```c#
-public class Raycast1 : MonoBehaviour
+public class Raycast2 : MonoBehaviour
 {
 
     public Transform objectToPlace;
@@ -86,3 +86,36 @@ public class Raycast1 : MonoBehaviour
 ```
 * the normal is a vector perpendicular to the object hit, starting from the hitInfo.point
 * objectToPlace.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal); [FROMdirection, TOdirection]
+
+
+### using raycast in 2D
+
+```c#
+public class Raycast3 : MonoBehaviour
+{
+
+    /////// ADDED TO A 2D object
+    
+    void Update()
+    {;
+
+        RaycastHit2D hitInfo = Physics2D.Raycast(
+			transform.position, 	// origin
+			transform.right			// direction
+		);
+
+        if (hitInfo.Collider != null )
+        {
+            Debug.DrawLine(transform.position, hitInfo.point, Color.red)
+        } 
+		else 
+		{
+			Debug.DrawLine(transform.position, transform.position + transform.right * 100, Color.green)
+		}
+
+    }
+
+} // Raycast3
+
+
+```
