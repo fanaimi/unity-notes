@@ -1,86 +1,90 @@
-# unity-notes - ARRAYS and LISTS
+# unity-notes - TRIGONOMETRY
 
-## arrays
-* store collections of a fixed size
+* problems: getting directions from angles and angles from directions
+* getting radians from degrees and vice versa
+
+## we know the angle (a), we want coordinates of the point on the circle (x,y)
+* 
 ```c#
-Class someClass {
-	// creating an empty array of strings
-	string[] names;
-	
-	// creating an empty array with a set number of elements
-	float[] floatNumbers = new float[5]; // {0,0,0,0,0}
-	
-	// creating an array with values
-	int[] numbers = {1,2,3,4}
+	y = sin(a)
+	x = cos(a)
+	VECTOR = (cos(a), sin(a))
+```
 
-	// accesisng an element
-	print(numbers[index])
 
-	// getting a random index
-	int randomIndex = Random.Range(0, numbers.Length);
-	
-	// getting a random element of numbers array
-	int randomNumber = numbers[randomIndex];
+* the plots of sin and cos are identical but offset by 90degrees
+```c#
+sin(a) = cos(90-a)
+cos(a) = sin(90-a)
+tan(a) = sin(a) / cos(a)
+```
 
-	// creating an empty multidimensional array (2 dimensions)
-	int[,] board = new int[3,3]; // { {0,0,0}, {0,0,0}, {0,0,0} }
-	
-	
-	// creating a multidimensional array with values 
-	int[,] newBoard =  { 
-		{1,2,1}, 
-		{0,0,0}, 
-		{1,2,3} 
-	};
+## we know x and y of the vector, we need the angle
+```c#
+a = atan2(y,x)
+```
 
-		
-	// creating an empty multidimensional array (3 dimensions)
-	int[,,] bigBoard = new int[3,4,5]; 
-	
-	
-	// getting leght of one of the arrays in a multidimensional array
-	int[,] board = new int [8,8]; // 8 rows and 8 columns
-	board.GetLenght(0) => specifies lenght of which array
 
-}	
+
+
+## converting deg to rad and rad to deg
+* 
+```c#
+rad = deg * (PI/180)
+deg = rad * (180/PI)
+
+
+```
+
+## UNITY CIRCLE is not the same as TRIG CIRCLE
+* so we need some conversion  
+```c#
+angle = 90 - unityAngle
+
+unityAngle = 90 - angle
 
 ```
 
 
-## lists
-* helpful when we don't know the lenght of an array beforehand
-* slightly slower than arrays
-* internally store data into arrays
+## UNITY TRIG, getting direction from angle 
+### calculations are computed in RADIANS! 
+### Sin and Cos are swapped because of the 90deg-angle due to the difference in the Unity circle
 ```c#
+	public float angleInDeg;
 
-using System.Collections.Generic;
+	void Update(){
+		Vector3 direction = new Vector3( 
+			Mathf.Sin(angleInDeg * Mathf.Deg2Rad), 
+			0,  
+			Mathf.Cos(angleInDeg * Mathf.Deg2Rad), 
+		);
 
-Class someClass {
 
-	// list of strings with unknown lenght
-	List<string> aListOfStrings = new List<string>();
+		Debug.DrawRay(startPosition, direction*distance, color);
+	}
 
-	// adding an element at the end of a List (ADD)
-	aListOfStrings.Add(aNewString);	
-	
-	// accessing a List element
-	string someNewString = aListOfStrings[0];
-
-	// accessing number of elements in a list (COUNT)
-	print(aListOfStrings.Count)
-
-	// other helpful methods that arrays don't have
-	list.Remove(element) 			// removes first occurrence of element
-	list.Contains(element)			// returns a boolean if element is contained or not
-	list.Sort()						// sorts alphabetically	
-	
-}	
 
 ```
 
-* we use arrays over lists if we won't need to modify the size (so we won't need Add or Remove etc)
-* we can have list of arrays, arrays of lists, list of lists, arrays of arrays etc
-* arrays and lists store by reference, copying an array and modifying it values will modifies values in copy
 
-#### arrays and lists are REFERENCE types and are both indexed starting at 0
 
+
+## UNITY TRIG, getting angle from direction 
+### calculations are computed in RADIANS! 
+* gettin input from arrow keys and calculatin the eangle
+```c#
+	public float angleInDeg;
+
+	void Update(){
+		Vector3 direction = new Vector3( 
+			Mathf.Sin(angleInDeg * Mathf.Deg2Rad), 
+			0,  
+			Mathf.Cos(angleInDeg * Mathf.Deg2Rad), 
+		);
+
+
+		Debug.DrawRay(startPosition, direction*distance, color);
+	}
+
+
+```
