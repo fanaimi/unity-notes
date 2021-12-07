@@ -71,7 +71,7 @@ unityAngle = 90 - angle
 
 ## UNITY TRIG, getting angle from direction 
 ### calculations are computed in RADIANS! 
-* gettin input from arrow keys and calculatin the eangle
+* gettin input from arrow keys and calculatin the angle
 ```c#
 	public float angleInDeg;
 
@@ -81,9 +81,22 @@ unityAngle = 90 - angle
 			0,  
 			Mathf.Cos(angleInDeg * Mathf.Deg2Rad), 
 		);
-
-
 		Debug.DrawRay(startPosition, direction*distance, color);
+
+		// getting direction from keyboard
+		Vector3 inputDir = 
+			new Vector3(Input.GetAxisRaw("horizontal"), 0, Input.GetAxisRaw("vertical")).normalise;
+
+		// moving player	
+		transform.Translate(inputDir * Time.deltaTime * 5, Space.World);
+
+		// rotating player, we need the angle or rotation atan2(y, x) 
+		// **** but we need 90deg-a OR WE FLIP atan2*(x,y) 
+		float inputAngle = 90 - Mathf.atan2(inputDir.x, inputDir.z) * Mathf.rad2deg;
+
+		// then we can apply rotation aroung V3.up (y axes)
+		transform.eulerAngles = Vector3.up * inputAngle;
+
 	}
 
 
