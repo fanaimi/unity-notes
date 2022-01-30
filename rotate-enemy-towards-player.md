@@ -1,6 +1,6 @@
 # unity-notes - ROTATE-ENEMY-TOWARDS-PLAYER
 
-
+* rotating around Y AXIS ONLY
 
 ```c#
 	// in ENEMY
