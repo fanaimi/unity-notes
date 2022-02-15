@@ -19,7 +19,11 @@
         } else {
             _instance = this;
         }
-    }
+
+        // if we want this to survive throughout different levels and scenes
+        DontDestroyOnLoad(gameObject);
+
+    } // Awake
 	
 	public void SomeMethod(){}
 	
