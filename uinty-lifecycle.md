@@ -39,23 +39,40 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Calling OnDisable");
     }
+	
+	
 
-    //// Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    Debug.Log("Calling Fixed Update");
-    //}
+	// is called on consistent frame rate
+    // manipulate physics
+    // for example: to manipulate "rigidbody" component
+    void FixedUpdate()
+    {
+        Debug.Log("Calling Fixed Update");
+    }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    Debug.Log("Calling Update");
-    //}
 
-    //void LateUpdate()
-    //{
-    //    Debug.Log("Calling Late Update");
-    //}
+
+    // Update is called once per frame
+    // is not consistent
+    // one frame can take longer than other
+    // you can use update:
+    // to receive input from the user
+    // do operation with timers
+    // manipulate non physics objects
+    void Update()
+    {
+        Debug.Log("Calling Update");
+    }
+
+
+
+
+    // is called after update
+    // for example: manipulate camera
+    void LateUpdate()
+    {
+        Debug.Log("Calling Late Update");
+    }
 }
 
 ```
