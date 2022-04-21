@@ -47,6 +47,23 @@ Class someClass {
 ```
 
 
+### shuffling an array
+```c#
+   private void ShuffleRuneSequence()
+    {
+        for (int i = 0; i < m_currentRuneSequence.Length - 1; i++)
+        {
+            int rnd = UnityEngine.Random.Range(i, m_currentRuneSequence.Length);
+            int temp = m_currentRuneSequence[rnd];
+            m_currentRuneSequence[rnd] = m_currentRuneSequence[i];
+            m_currentRuneSequence[i] = temp;
+        }
+        Debug.Log(String.Join("-", m_currentRuneSequence) );    //Join("-"))
+    }
+```
+
+
+
 ## lists
 * helpful when we don't know the lenght of an array beforehand
 * slightly slower than arrays
