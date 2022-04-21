@@ -2,7 +2,7 @@
 
 
 
-
+* read documentation (https://docs.unity3d.com/ScriptReference/PlayerPrefs.html)[https://docs.unity3d.com/ScriptReference/PlayerPrefs.html]
 
 * AT THE VERY TOP creating a Struct, faster and more efficient to store data
 
@@ -70,5 +70,12 @@
 	{regedit}
 	registry editor > HKEY_CURRENT_USER > SOFTWARE > Unity > 
 	{company name} DefaultCompany > gameName
+
+```
+
+* how to find PLAYER PREFS data in MAC 
+
+```c#
+	/Library/Preferences/Unity.DefaultCompany.{projectname}.plist
 
 ```
