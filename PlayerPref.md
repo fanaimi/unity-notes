@@ -63,13 +63,12 @@
 ```
 
 
-```
 
-
-
-* 
+* how to find PLAYER PREFS data in WINDOWS 
 
 ```c#
-
+	{regedit}
+	registry editor > HKEY_CURRENT_USER > SOFTWARE > Unity > 
+	{company name} DefaultCompany > gameName
 
 ```
