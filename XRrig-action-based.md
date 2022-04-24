@@ -54,7 +54,7 @@
 
 
 ## about VR Interactions with XR Interaction Toolkit:
-* this looks interesting (haven't watched it yet): [Basic VR Interactions with XR Interaction Toolkit](https://www.youtube.com/watch?v=WXrKu7atiAM&ab_channel=MikeMcCready)
+* this is very helpful: [Basic VR Interactions with XR Interaction Toolkit](https://www.youtube.com/watch?v=WXrKu7atiAM&ab_channel=MikeMcCready)
 
 
 ## about events:
