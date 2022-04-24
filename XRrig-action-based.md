@@ -49,7 +49,7 @@
 
 ## for events:
 ```c#
-// usegul namespaces to add
+// useful namespaces to add
 using System;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
