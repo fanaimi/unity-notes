@@ -61,7 +61,7 @@ public class MyClassInteractable : XRBaseInteractable
 	public class MyCustomEvent<float> : UnityEvent {}
 
 	// creating the event => it will appead in the inspector like UI button click 
-	public MyCustomEvent OnMyEventHappened;
+	public MyCustomEvent onMyEventHappened;
 
 
 	private XRBaseInteractor grabbingInteractor;
@@ -75,6 +75,12 @@ public class MyClassInteractable : XRBaseInteractable
 
 		grabbingInteractor = interactor;
 
+		// invoking our custom event
+		if(someCondition)
+		{
+			onMyEventHappened.Invoke(someFloatValue); // because we parsed <Float>
+		}
+
 
 		// invoking base class we are inheriting from
 		base.OnSelectEntered(args);
@@ -86,7 +92,19 @@ public class MyClassInteractable : XRBaseInteractable
 		// invoking base class we are inheriting from
 		base.OnSelectExited(args);
 
-		
+
+	}
+
+
+	public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
+	{
+		 if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed)
+		 {
+			 
+		 }
+
+
+		base.ProcessInteractable(updatePhase);
 	}
 
 
