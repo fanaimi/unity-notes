@@ -63,6 +63,33 @@ public class MyClassInteractable : XRBaseInteractable
 	// creating the event => it will appead in the inspector like UI button click 
 	public MyCustomEvent OnMyEventHappened;
 
+
+	private XRBaseInteractor grabbingInteractor;
+
+	// overriding from inherited method
+	protected override void OnSelectEntered(SelectEnterEventArgs args)
+	{
+		var interactor = args.interactor;
+		// getting rotation of the hand
+		grabbedRotation = interactor.transform.rotation;
+
+		grabbingInteractor = interactor;
+
+
+		// invoking base class we are inheriting from
+		base.OnSelectEntered(args);
+	}
+
+	// overriding from inherited method
+	protected override void OnSelectExited(SelectExitEventArgs args)
+	{
+		// invoking base class we are inheriting from
+		base.OnSelectExited(args);
+
+		
+	}
+
+
 }
 
 ```
