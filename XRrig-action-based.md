@@ -46,6 +46,10 @@
 ## for grabbable objects:
 * add Rigid Body and box collider
 * add component "XR Grab Interactable"
+* under "XR Grab Interactable", expand "Interactable events"
+	* Select = grip 
+	* Activate = triggerPressed
+	* double click on XRI Default Input Actions to see / modify actions 
 
 ## about events:
 ```c#
@@ -111,6 +115,8 @@ public class MyClassInteractable : XRBaseInteractable
 }
 
 ```
+
+
 
 
 
