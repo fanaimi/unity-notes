@@ -31,6 +31,38 @@
 	* under LeftHand Teleportation Controller > XR controller (Action-based)
 		* uncheck "Enable Input Tracking"
 		* uncheck "Position Action > Use Reference"
-		* uncheck "Rotation Action > Use Reference"
+		* uncheck "Rotation Action > Use Reference"		
+
+* under LeftHandGrabController, create new empty object -> Model Parent
+	* drag hand model under Model Parent
+
+* under LeftHand Teleportation Controller > XR controller (Action-based)
+	* Under Activate Action > Reference => replace "XRI LeftHandActivate" with "XRI LeftHand/Teleport Mode Activate"
+
 * REPEAT FOR RIGHT HAND :)
 * good to make XR Origin with all these settings as a PREFAB so it's easy to import/export it
+
+
+## for grabbable objects:
+* add Rigid Body and box collider
+* add component "XR Grab Interactable"
+
+## for events:
+```c#
+// usegul namespaces to add
+using System;
+using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class MyClassInteractable : XRBaseInteractable
+{
+	// inheriting from UnityEvent, expecting a float param
+	[Serialisable]
+	public class MyCustomEvent<float> : UnityEvent {}
+
+	// creating the event => it will appead in the inspector like UI button click 
+	public MyCustomEvent OnMyEventHappened;
+
+}
+
+```
