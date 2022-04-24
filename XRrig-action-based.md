@@ -47,7 +47,7 @@
 * add Rigid Body and box collider
 * add component "XR Grab Interactable"
 
-## for events:
+## about events:
 ```c#
 // useful namespaces to add
 using System;
@@ -100,7 +100,7 @@ public class MyClassInteractable : XRBaseInteractable
 	{
 		 if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed)
 		 {
-			 
+			  
 		 }
 
 
@@ -111,3 +111,9 @@ public class MyClassInteractable : XRBaseInteractable
 }
 
 ```
+
+
+
+## about events:
+* this looks interesting (haven't watched it yet): Basic VR Interactions with XR Interaction Toolkit
+	[https://www.youtube.com/watch?v=WXrKu7atiAM&ab_channel=MikeMcCready](youtube vid)
