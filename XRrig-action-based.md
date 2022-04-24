@@ -51,6 +51,12 @@
 	* Activate = triggerPressed
 	* double click on XRI Default Input Actions to see / modify actions 
 
+
+
+## about VR Interactions with XR Interaction Toolkit:
+* this looks interesting (haven't watched it yet): [Basic VR Interactions with XR Interaction Toolkit](https://www.youtube.com/watch?v=WXrKu7atiAM&ab_channel=MikeMcCready)
+
+
 ## about events:
 ```c#
 // useful namespaces to add
@@ -119,6 +125,3 @@ public class MyClassInteractable : XRBaseInteractable
 
 
 
-
-## about VR Interactions with XR Interaction Toolkit:
-* this looks interesting (haven't watched it yet): [Basic VR Interactions with XR Interaction Toolkit](https://www.youtube.com/watch?v=WXrKu7atiAM&ab_channel=MikeMcCready)
