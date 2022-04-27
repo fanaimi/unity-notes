@@ -131,3 +131,37 @@ public class Raycast3 : MonoBehaviour
 ```
 
 * ZminDepth and ZmaxDepth can be used to specify wether we want to interact with foreground elements only or background elements only etc
+
+
+
+### using raycast for bullets of fast moving objects 
+```c#
+public class Bullet : MonoBehaviour
+{
+    [SerializeField] private float m_speed = 100f;
+
+    // Update is called once per frame
+    void Update()
+    {
+        // moving bullets
+        transform.Translate(0, 0, m_speed * Time.deltaTime);
+      
+        // collision detection with Raycast
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f))
+        {
+        
+            if (hit.transform.gameObject.layer == layer) // layer of elements to hit
+            {
+                // we hit a target, destroying bullet, playing sounds, etc
+                Destroy(gameObject);
+            }
+        }
+
+
+    }
+}
+
+
+
+```
