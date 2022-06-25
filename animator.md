@@ -12,7 +12,8 @@ Class someClass {
 
 	void SomeFoo()
 	{
-		m_animator.SetTrigger(EVENT_NAME);
+		if(something) m_animator.SetTrigger(EVENT_NAME);
+		else m_animator.ResetTrigger(EVENT_NAME);
 	}
 }	
 ```
