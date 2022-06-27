@@ -1,38 +1,7 @@
-# unity-notes - SINGLETON PATTERN
+# unity-notes - SERVICE LOCATOR PATTERN
 
-* prevents the creation of duplicates
-* only one instance is possible at the same time
-* can be accessed anywhere without instantiation or reference
+* CAN BE AN ANTI-PATTERN
 
-```c#
-	/// <summary>
-    /// singleton start
-    /// </summary>
-    private static SomeManager _instance;
-    public static SomeManager Instance { get { return _instance; } }
-    
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            _instance = this;
-        }
-
-        // if we want this to survive throughout different levels and scenes
-        DontDestroyOnLoad(gameObject);
-
-    } // Awake
-	
-	public void SomeMethod(){}
-	
-```
-
-** to access, just use
-```c#
-	SomeManager.Instance.SomeMethod();
-```
 
 
 * singleton abstract class to inherit from (from https://www.mrventures.net/)
@@ -88,12 +57,36 @@ public abstract class Singleton<T> : MonoBehaviour
 
 ```
 
-** to inherit from abstrac class (check service locator) 
+** SERVICE LOCATOR
 ```c#
+// ServiceLocator.cs
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MyManager : Singleton<MyManager> {
+public class ServiceLocator : Singleton<ServiceLocator> {
 
-   
+    private IDictionary<Type, MonoBehaviour> serviceReferences;
+    protected void Awake() {
+        SingletonBuilder( this );
+        serviceReferences = new Dictionary<Type, MonoBehaviour>();
+    }
+
+    public T GetService<T>() where T : MonoBehaviour, new() {
+        UnityEngine.Assertions.Assert.IsNotNull( serviceReferences, "Someone has requested a service prior to the locator's intialization." );
+
+        bool serviceLocated = serviceReferences.ContainsKey( typeof( T ) );
+        if ( !serviceLocated ) {
+            serviceReferences.Add( typeof( T ), FindObjectOfType<T>() );
+        }
+
+        UnityEngine.Assertions.Assert.IsTrue( serviceReferences.ContainsKey( typeof( T ) ), "Could not find service: " + typeof( T ) );
+        var service = ( T ) serviceReferences [ typeof( T ) ];
+        UnityEngine.Assertions.Assert.IsNotNull( service, typeof( T ).ToString() + " could not be found." );
+        return service;
+    }
 }
+
 
 ```
