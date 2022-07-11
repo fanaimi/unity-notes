@@ -1,5 +1,10 @@
 # unity-notes - XRrig action based
 
+## XRI in unity 2021 +
+* window > packege manager > gear icon > advanced project settings > Enable Pre-release packages
+* package manager > click on big + sign > add package by name > COM.UNITY.XR.INTERACTION.TOOLKIT
+
+
 ## XR-rig
 * install XR Interaction toolkit and samples
 * install XR Plugin Management
